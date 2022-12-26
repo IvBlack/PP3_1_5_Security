@@ -22,7 +22,6 @@ habr.com/ru/post/203318/
 public class ManagerController {
     private final UserService userService;
 
-    @Autowired
     public ManagerController(UserService userService) {
         this.userService = userService;
     }

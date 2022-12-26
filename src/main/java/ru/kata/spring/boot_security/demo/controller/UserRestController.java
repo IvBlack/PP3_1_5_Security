@@ -14,14 +14,13 @@ import ru.kata.spring.boot_security.demo.service.UserService;
 public class UserRestController {
     private final UserService userService;
 
-    @Autowired
     public UserRestController(UserService userService) {
         this.userService = userService;
     }
 
     //возвращает юзера из БД на странице админа
     @GetMapping
-    public User getUserById(Authentication auth) {
+    public User getUserByName(Authentication auth) {
         return userService.getByUserName(auth.getName());
     }
 }

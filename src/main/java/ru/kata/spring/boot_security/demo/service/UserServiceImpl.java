@@ -49,8 +49,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     @Transactional
-    public void saveUser(User user) {
+    public User saveUser(User user) {
         userDao.save(user); //метод CRUD-репозитория
+        return user;
     }
 
     @Override
@@ -71,13 +72,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         userDao.deleteById(id);
     }
 
+
     @Override
     @Transactional
-    public void updateUser(User user) {
-        userDao.save(user);
-    }
+    public void updateUser(Long id, User user) { userDao.save(user); }
 
-    //поиск пользователя по имени в БД
+
+        //поиск пользователя по имени в БД
     @Override
     @Transactional
     public User getByUserName(String username) throws UsernameNotFoundException{
